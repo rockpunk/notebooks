@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  jupyter:
+    image: jupyter/datascience-notebook
+    container_name: jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - ".:/home/jovyan/work"
+      - "./init.d/nb:/usr/local/bin/before-notebook.d"
+    links: 
+      - db
+
+  db:
+    image: mariadb
+    container_name: db
+    volumes:
+      - "./init.d/db:/docker-entrypoint-initdb.d"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_DATABASE: notebook
