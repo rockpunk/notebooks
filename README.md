@@ -7,30 +7,37 @@ or helping other folks learn data-sciency db-y type things
 
 Use jupyter in your favorite environment.
 
-I've set things up to just work out of the box via docker-compose
+I've set things so thinks should mostly work out of the box via 
+docker-compose.
 
 ### Quickstart w/ docker-compose
 
     $ docker-compose up -d
-    $ ./start.sh
+    $ #goto http://localhost:8888 and use an empty password
 
 ### Quickstart w/ pipenv
+
+Pipenv will require a local installation of python 3.6 available
 
     $ pipenv install
     $ pipenv run jupyter notebook
 
-#### Pipenv Setup
+#### Pipenv Requirements
 
-This requires a local install of python 3.6
+If you decide not to run in docker, you'll need a local install of
+python 3.6 installed on your machine. You can do this via `pyenv` 
+pretty easily:
 
-If you don't have python 3.6 on Mac:
-
+on Mac:
     $ brew install pyenv pyenv-virtualenv
     $ # follow brew installation instructions to update ~/.bashrc
     $ pyenv install 3.6.3
 
-If you don't have pipenv:
+on Windows:
+    $ pip install pyenv-win
+    $ # follow [pyenv-win installation instructions](https://github.com/pyenv-win/pyenv-win#installation)
+    $ pyenv install 3.6.3
+
+Finally, install pipenv with:
 
     $ pip install pipenv
-
-You can also use conda, but I don't ever mess with that.

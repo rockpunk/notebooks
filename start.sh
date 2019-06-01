@@ -1,3 +1,8 @@
 #!/bin/sh
 
-open -a "Google Chrome" $(docker-compose logs jupyter | grep ?token  | sed '1s/.*\(token=.*\)/http:\/\/localhost:8888\/login?next=%2Fnotebooks%2Fwork\&\1/p;d')
+url='http://localhost:8888/login?next=%2Ftree%2Fwork'
+if ! grep '^ *command: .*NotebookApp.password' docker-compose.yml >/dev/null; then
+    url="${url}&$(docker-compose logs jupyter | grep ?token | sed '1s/.*\(token=.*\)/\1/p;d')"
+fi
+
+open -a "Google Chrome" "$url"

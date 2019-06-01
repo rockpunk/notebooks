@@ -8,8 +8,8 @@ verify_ssl = true
 [packages]
 pandas = "*"
 matplotlib = "*"
-mysqlclient = "*"
 jupyter = "*"
+pymysqldb = "*"
 
 [requires]
 python_version = "3.6"

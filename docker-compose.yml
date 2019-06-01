@@ -10,6 +10,7 @@ services:
       - "./init.d/nb:/usr/local/bin/before-notebook.d"
     links: 
       - db
+    command: /usr/local/bin/start-notebook.sh --NotebookApp.password=sha1:b8d9969ea978:4014b3587ddbe761f0d6f6e417b1807835a1657a
 
   db:
     image: mariadb
